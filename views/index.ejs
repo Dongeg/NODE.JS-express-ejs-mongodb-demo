@@ -1,0 +1,36 @@
+<% include header %>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <h1>后台管理</h1>
+  <% if (status) { %>  
+    <p class="lead">欢迎您： <%=username%></p> 
+    <p class="label label-info">登陆时间： <%=date%></p>
+    <h3>管理员列表</h3>
+    <% if (adminlist.length) { %>  
+      <table class="table table-hover span12">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>用户名</th>
+          <th>密码</th>
+          <th>年龄</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% adminlist.forEach(function(data){ %>
+          <tr>
+            <td><%= data.id %></td>
+            <td><%= data.user %></td>
+            <td><%= data.password %></td>
+            <td><%= data.age %></td>
+          </tr>
+        <% }) %>  
+        </tbody>
+      </table>
+    <% } %>  
+  <% } else {%>
+    <strong>登录失败 <a href="/">回首页</a></strong>
+  <% } %>  
+  </div>
+</div>
+<% include footer %>
